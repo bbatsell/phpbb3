@@ -4,16 +4,11 @@
 
 phpBB is a free bulletin board written in PHP.
 
-## COMMUNITY
-
-Find support and lots more on [phpBB.com](http://www.phpbb.com)! Discuss the development on [area51](http://area51.phpbb.com/phpBB/index.php).
-
-## CONTRIBUTE
-
-1. [Create an account on phpBB.com](http://www.phpbb.com/community/ucp.php?mode=register)
-2. [Create a ticket (unless there already is one)](http://tracker.phpbb.com/secure/CreateIssue!default.jspa)
-3. [Read our Git Contribution Guidelines](http://wiki.phpbb.com/Git); if you're new to git, also read [the introduction guide](http://wiki.phpbb.com/display/DEV/Working+with+Git)
-4. Send us a pull request
+## THIS FORK
+This fork will be focused on small changes to make phpBB more scalable and highly available.  Planned features include:
+* CDN settings for static assets
+* Awareness of MySQL master/slave replication, including distributing reads and implementing a read-only mode in order to cope with the write master being unavailable
+* Alternate search plugins
 
 ## LICENSE
 
