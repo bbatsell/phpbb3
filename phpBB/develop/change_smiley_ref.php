@@ -5,8 +5,6 @@
  *   begin                : Tuesday, February 25, 2003 
  *   copyright            : (C) 2003 The phpBB Group        
  *   email                : support@phpbb.com                           
- *                                                          
- *   $Id$
  * 
  ***************************************************************************/ 
 
@@ -58,5 +56,3 @@ while ($row = $db->sql_fetchrow($result))
 $db->sql_freeresult($result);
 
 echo "<p><b>Done</b></p>\n";
- 
-?>

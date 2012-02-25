@@ -2,9 +2,8 @@
 /**
 *
 * @package dbal
-* @version $Id$
 * @copyright (c) 2010 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 * This is the MS SQL Server Native database abstraction layer.
 * PHP mssql native driver required.
@@ -396,7 +395,7 @@ class dbal_mssqlnative extends dbal
 	*/
 	function sql_affectedrows()
 	{
-		return ($this->db_connect_id) ? @sqlsrv_rows_affected($this->db_connect_id) : false;
+		return (!empty($this->query_result)) ? @sqlsrv_rows_affected($this->query_result) : false;
 	}
 
 	/**
@@ -645,5 +644,3 @@ class dbal_mssqlnative extends dbal
 		$this->query_options = $options;
 	}
 }
-
-?>

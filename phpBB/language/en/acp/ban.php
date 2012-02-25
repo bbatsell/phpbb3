@@ -4,9 +4,8 @@
 * acp_ban [English]
 *
 * @package language
-* @version $Id$
 * @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -68,6 +67,9 @@ $lang = array_merge($lang, array(
 
 	'LENGTH_BAN_INVALID'		=> 'The date has to be formatted <kbd>YYYY-MM-DD</kbd>.',
 
+	'OPTIONS_BANNED'			=> 'Banned',
+	'OPTIONS_EXCLUDED'			=> 'Excluded',
+
 	'PERMANENT'		=> 'Permanent',
 
 	'UNTIL'						=> 'Until',
@@ -78,5 +80,3 @@ $lang = array_merge($lang, array(
 	'USER_UNBAN'				=> 'Un-ban or un-exclude usernames',
 	'USER_UNBAN_EXPLAIN'		=> 'You can unban (or un-exclude) multiple users in one go using the appropriate combination of mouse and keyboard for your computer and browser. Excluded users are emphasised.',
 ));
-
-?>

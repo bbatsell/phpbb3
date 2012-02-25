@@ -3,7 +3,7 @@
 *
 * @package testing
 * @copyright (c) 2008 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -27,8 +27,12 @@ class phpbb_security_extract_current_page_test extends phpbb_security_test_base
 	*/
 	public function test_query_string_php_self($url, $query_string, $expected)
 	{
-		$_SERVER['PHP_SELF'] = $url;
-		$_SERVER['QUERY_STRING'] = $query_string;
+		global $request;
+
+		$request->merge(phpbb_request_interface::SERVER, array(
+			'PHP_SELF'	=> $url,
+			'QUERY_STRING'	=> $query_string,
+		));
 
 		$result = session::extract_current_page('./');
 
@@ -41,8 +45,12 @@ class phpbb_security_extract_current_page_test extends phpbb_security_test_base
 	*/
 	public function test_query_string_request_uri($url, $query_string, $expected)
 	{
-		$_SERVER['REQUEST_URI'] = $url . '?' . $query_string;
-		$_SERVER['QUERY_STRING'] = $query_string;
+		global $request;
+
+		$request->merge(phpbb_request_interface::SERVER, array(
+			'PHP_SELF'	=> $url,
+			'QUERY_STRING'	=> $query_string,
+		));
 
 		$result = session::extract_current_page('./');
 

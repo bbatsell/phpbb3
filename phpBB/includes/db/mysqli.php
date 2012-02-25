@@ -2,9 +2,8 @@
 /**
 *
 * @package dbal
-* @version $Id$
 * @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -43,7 +42,23 @@ class dbal_mysqli extends dbal
 		$this->dbname = $database;
 		$port = (!$port) ? NULL : $port;
 
-		$this->db_connect_id = @mysqli_connect($this->server, $this->user, $sqlpassword, $this->dbname, $port);
+		// If port is set and it is not numeric, most likely mysqli socket is set.
+		// Try to map it to the $socket parameter.
+		$socket = NULL;
+		if ($port)
+		{
+			if (is_numeric($port))
+			{
+				$port = (int) $port;
+			}
+			else
+			{
+				$socket = $port;
+				$port = NULL;
+			}
+		}
+
+		$this->db_connect_id = @mysqli_connect($this->server, $this->user, $sqlpassword, $this->dbname, $port, $socket);
 
 		if ($this->db_connect_id && $this->dbname != '')
 		{
@@ -233,7 +248,13 @@ class dbal_mysqli extends dbal
 			return $cache->sql_fetchrow($query_id);
 		}
 
-		return ($query_id !== false) ? @mysqli_fetch_assoc($query_id) : false;
+		if ($query_id !== false)
+		{
+			$result = @mysqli_fetch_assoc($query_id);
+			return $result !== null ? $result : false;
+		}
+
+		return false;
 	}
 
 	/**
@@ -467,5 +488,3 @@ class dbal_mysqli extends dbal
 		}
 	}
 }
-
-?>

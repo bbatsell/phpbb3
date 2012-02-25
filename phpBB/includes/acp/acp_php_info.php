@@ -2,9 +2,8 @@
 /**
 *
 * @package acp
-* @version $Id$
 * @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -67,6 +66,9 @@ class acp_php_info
 		$output = preg_replace('#<img border="0"#i', '<img', $output);
 		$output = str_replace(array('class="e"', 'class="v"', 'class="h"', '<hr />', '<font', '</font>'), array('class="row1"', 'class="row2"', '', '', '<span', '</span>'), $output);
 
+		// Fix invalid anchor names (eg "module_Zend Optimizer")
+		$output = preg_replace_callback('#<a name="([^"]+)">#', array($this, 'remove_spaces'), $output);
+
 		if (empty($output))
 		{
 			trigger_error('NO_PHPINFO_AVAILABLE', E_USER_WARNING);
@@ -79,6 +81,9 @@ class acp_php_info
 
 		$template->assign_var('PHPINFO', $output);
 	}
+	
+	function remove_spaces($matches)
+	{
+		return '<a name="' . str_replace(' ', '_', $matches[1]) . '">';
+	}
 }
-
-?>

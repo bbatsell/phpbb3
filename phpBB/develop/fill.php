@@ -1,8 +1,6 @@
 <?php
 // -------------------------------------------------------------
 //
-// $Id$
-//
 // FILENAME  : fill.php
 // STARTED   : Mon Sep 15, 2003
 // COPYRIGHT : © 2001, 2003 phpBB Group
@@ -186,5 +184,3 @@ function rndm_username()
 
 	return $usernames[array_rand($usernames)];
 }
-
-?>

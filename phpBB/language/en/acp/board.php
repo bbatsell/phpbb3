@@ -4,9 +4,8 @@
 * acp_board [English]
 *
 * @package language
-* @version $Id$
 * @copyright (c) 2005 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -53,7 +52,7 @@ $lang = array_merge($lang, array(
 	'SYSTEM_TIMEZONE'				=> 'Guest timezone',
 	'SYSTEM_TIMEZONE_EXPLAIN'			=> 'Timezone to use for displaying times to users who are not logged in (guests, bots). Logged in users set their timezone during registration and can change it in their user control panel.',
 	'WARNINGS_EXPIRE'				=> 'Warning duration',
-	'WARNINGS_EXPIRE_EXPLAIN'		=> 'Number of days that will elapse before the warning will automatically expire from a user’s record.',
+	'WARNINGS_EXPIRE_EXPLAIN'		=> 'Number of days that will elapse before the warning will automatically expire from a user’s record. Set this value to 0 to make warnings permanent.',
 ));
 
 // Board Features
@@ -174,7 +173,7 @@ $lang = array_merge($lang, array(
 	'MAX_POST_URLS'					=> 'Maximum links per post',
 	'MAX_POST_URLS_EXPLAIN'			=> 'Maximum number of URLs in a post. Set to 0 for unlimited links.',
 	'MIN_CHAR_LIMIT'				=> 'Minimum characters per post/message',
-	'MIN_CHAR_LIMIT_EXPLAIN'		=> 'The minimum number of characters the user need to enter within a post/private message.',
+	'MIN_CHAR_LIMIT_EXPLAIN'		=> 'The minimum number of characters the user need to enter within a post/private message. The minimum for this setting is 1.',
 	'POSTING'						=> 'Posting',
 	'POSTS_PER_PAGE'				=> 'Posts per page',
 	'QUOTE_DEPTH_LIMIT'				=> 'Maximum nesting depth for quotes',
@@ -353,8 +352,11 @@ $lang = array_merge($lang, array(
 	'LIMIT_SESSIONS'				=> 'Limit sessions',
 	'LIMIT_SESSIONS_EXPLAIN'		=> 'If the number of sessions exceeds this value within a one minute period the board will go offline. Set to 0 for unlimited sessions.',
 	'LOAD_CPF_MEMBERLIST'			=> 'Allow styles to display custom profile fields in memberlist',
+	'LOAD_CPF_PM'					=> 'Display custom profile fields in private messages',
 	'LOAD_CPF_VIEWPROFILE'			=> 'Display custom profile fields in user profiles',
 	'LOAD_CPF_VIEWTOPIC'			=> 'Display custom profile fields on topic pages',
+	'LOAD_JQUERY_CDN'				=> 'Serve jQuery using Google’s CDN',
+	'LOAD_JQUERY_CDN_EXPLAIN'		=> 'If this setting is enabled, jQuery will be served from Google’s AJAX API CDN instead of the copy included with phpBB on your server. If the CDN fails, phpBB will attempt to fall back to the copy included with phpBB.',
 	'LOAD_USER_ACTIVITY'			=> 'Show user’s activity',
 	'LOAD_USER_ACTIVITY_EXPLAIN'	=> 'Displays active topic/forum in user profiles and user control panel. It is recommended to disable this on boards with more than one million posts.',
 	'RECOMPILE_STYLES'				=> 'Recompile stale style components',
@@ -433,6 +435,8 @@ $lang = array_merge($lang, array(
 	'SMILIES_PATH_EXPLAIN'		=> 'Path under your phpBB root directory, e.g. <samp>images/smilies</samp>.',
 	'UPLOAD_ICONS_PATH'			=> 'Extension group icons storage path',
 	'UPLOAD_ICONS_PATH_EXPLAIN'	=> 'Path under your phpBB root directory, e.g. <samp>images/upload_icons</samp>.',
+	'USE_SYSTEM_CRON'		=> 'Run periodic tasks from system cron',
+	'USE_SYSTEM_CRON_EXPLAIN'		=> 'When off, phpBB will arrange for periodic tasks to be run automatically. When on, phpBB will not schedule any periodic tasks by itself; a system administrator must arrange for <code>cron.php</code> to be invoked by the system cron facility at regular intervals (e.g. every 5 minutes).',
 ));
 
 // Security Settings
@@ -546,5 +550,3 @@ $lang = array_merge($lang, array(
 	'JAB_USERNAME'				=> 'Jabber username or JID',
 	'JAB_USERNAME_EXPLAIN'		=> 'Specify a registered username or a valid JID. The username will not be checked for validity. If you only specify a username, then your JID will be the username and the server you specified above. Else, specify a valid JID, for example user@jabber.org.',
 ));
-
-?>

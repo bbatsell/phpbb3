@@ -3,7 +3,7 @@
 *
 * @package testing
 * @copyright (c) 2008 phpBB Group
-* @license http://opensource.org/licenses/gpl-license.php GNU Public License
+* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
 *
 */
 
@@ -30,7 +30,7 @@ class phpbb_security_redirect_test extends phpbb_security_test_base
 	protected function setUp()
 	{
 		parent::setUp();
-		
+
 		$GLOBALS['config'] = array(
 			'force_server_vars'	=> '0',
 		);
@@ -57,4 +57,3 @@ class phpbb_security_redirect_test extends phpbb_security_test_base
 		}
 	}
 }
-

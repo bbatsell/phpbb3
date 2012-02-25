@@ -6,7 +6,6 @@
  *   copyright            : (C) 2003 The phpBB Group        
  *   email                : support@phpbb.com                           
  *                                                          
- *   $Id$
  * 
  ***************************************************************************/ 
 
@@ -205,5 +204,3 @@ foreach ($sql_ary as $sql)
 }
 
 echo "<p><b>Done</b></p>\n";
- 
-?>
